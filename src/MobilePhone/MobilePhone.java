@@ -8,15 +8,17 @@ import java.util.Scanner; // Import the Scanner class to read text files
 
 public class MobilePhone {
 	
-	PhoneBook pb;
+	protected static PhoneBook pb;
+	protected Diary myDiary;
 	public static Scanner myObj = new Scanner(System.in);
 	
 	// Default Constructor
 	protected MobilePhone() {
 		pb = new PhoneBook();
+		myDiary = new Diary(); 
 	}
 	protected void PhoneBookControl() {
-		this.pb.menu();
+		MobilePhone.pb.menu();
 		return;
 	}
 	// User menu
@@ -33,7 +35,7 @@ public class MobilePhone {
 				    //SMS control
 			        break;
 			  case "3":
-				    //Diary control
+				    this.myDiary.menu();
 			        break;
 			  case "4":
 				    //Media control

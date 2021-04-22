@@ -16,7 +16,7 @@ import java.util.*;
 public class PhoneBook {
 	
 	// ArrayList declaration
-	private ArrayList<Person> PersonsPhoneBook;
+	protected static ArrayList<Person> PersonsPhoneBook;
 	
 	// Default Constructor
 	protected PhoneBook() {
@@ -49,7 +49,7 @@ public class PhoneBook {
 		}
 	}
 	// Search person function
-	protected void searchPerson(String name) {
+	protected int searchPerson(String name) {
         int i = 0;
         int count = 0;
 		for(Person a : PersonsPhoneBook) {
@@ -62,6 +62,17 @@ public class PhoneBook {
 		if(count == 0) {
 		   System.out.println("ERROR: No contact found");
 		}
+		return i;
+	}
+	protected int searchPerson2(String name) {
+        int i = 0;
+		for(Person a : PersonsPhoneBook) {
+			if(a.getName().equals(name)) {
+		 	   return i;
+			}
+			i++;
+		}
+		return i;
 	}
 	// Boolean search person function
 	protected boolean existPerson(String name) {
