@@ -4,6 +4,8 @@
 // Group number: 17
 package MobilePhone;
 import java.util.ArrayList; // import the ArrayList class
+import java.util.Calendar; // import the Calendar class
+import  java.util.Date; // import the Date class
 
 public class Diary {
 
@@ -18,20 +20,45 @@ public class Diary {
 		}
 	}
 	protected void addMeeting() {
-	    System.out.println("Enter name:");
-	    String name = MobilePhone.myObj.nextLine();  // Read user input
-	    if(!MobilePhone.pb.existPerson(name)) {
-	    	System.out.println("The contact doesn't exist");
-	    	return;
-	    }
-	    int index = MobilePhone.pb.searchPerson2(name);
-	    Meeting b = new Meeting();
-	    Meeting b1 = new Meeting();
-	    Meeting b2 = new Meeting();
-	    //PhoneBook.PersonsPhoneBook.get(index).pm.add(e);
-	    d.get(0).add(b);
-	    d.get(3).add(b1);
-	    d.get(3).add(b2);
+		Calendar c = Calendar.getInstance();
+		System.out.println("Enter day (1-30):");
+	    int day = MobilePhone.myObj.nextInt();  // Read user input
+	    MobilePhone.myObj.nextLine();  // Clean enter
+		System.out.println("Enter Hour (00-23):");
+	    int hour = MobilePhone.myObj.nextInt();  // Read user input
+	    MobilePhone.myObj.nextLine();  // Clean enter
+		System.out.println("Enter Minute (00-59):");
+	    int minute = MobilePhone.myObj.nextInt();  // Read user input
+	    MobilePhone.myObj.nextLine();  // Clean enter
+	    c.set(2021, 05, day, hour, minute, 00);
+	    Date date = c.getTime(); // Initialize date
+		System.out.println("Enter Length (1-60):");
+	    int length = MobilePhone.myObj.nextInt();  // Read user input
+	    MobilePhone.myObj.nextLine();  // Clean enter
+	    System.out.println("Enter option: 1. Event 2. Meeting with person");
+	    String option = MobilePhone.myObj.nextLine();  // Read user input
+		switch (option) {
+		  case "1":
+	               System.out.println("Enter Description:");
+	               String description = MobilePhone.myObj.nextLine();  // Read user input
+	               Event e = new Event(date, length, description);
+	               d.get(day-1).add(e);
+		           break;
+		  case "2":
+		           System.out.println("Enter name:");
+		           String name = MobilePhone.myObj.nextLine();  // Read user input
+		           if(!MobilePhone.pb.existPerson(name)) {
+		    	      System.out.println("The contact doesn't exist");
+		    	      return;
+		              }
+		           int index = MobilePhone.pb.searchPerson2(name);
+		           String phoneNumber = MobilePhone.pb.PersonsPhoneBook.get(index).getphoneNumber();
+		           PersonMeeting pm = new PersonMeeting(date, length, name ,phoneNumber);
+		           d.get(day-1).add(pm);
+		           break;
+		  default:
+			      System.out.println("No such option");
+		}
 	}
 	// toString Override
 	@Override

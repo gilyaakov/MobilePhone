@@ -11,13 +11,11 @@ public class Person implements Comparable<Person> {
     
 	// Variables declaration
 	private String name, phoneNumber;
-	protected ArrayList<Meeting> pm;
 	
 	// Default Constructor
 	protected Person(){
 		name = "Ploni";
 		phoneNumber = "0000000000";
-		pm = new ArrayList<Meeting>();
 	}
 	// Constructor
 	protected Person(String name, String phoneNumber){

@@ -21,6 +21,10 @@ public class MobilePhone {
 		MobilePhone.pb.menu();
 		return;
 	}
+	protected void DiaryControl() {
+		this.myDiary.menu();
+		return;
+	}
 	// User menu
 	protected void menu() {
 		while(true) {
@@ -35,7 +39,7 @@ public class MobilePhone {
 				    //SMS control
 			        break;
 			  case "3":
-				    this.myDiary.menu();
+				    this.DiaryControl();
 			        break;
 			  case "4":
 				    //Media control
