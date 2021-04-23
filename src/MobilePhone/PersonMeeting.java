@@ -1,3 +1,7 @@
+// Students: Matan Eshel 203502802 & Gil Ya'akov 203382858
+// Project Name: Task2
+// Date: 19/04/2021
+// Group number: 17
 package MobilePhone;
 
 import java.util.Date;
@@ -6,15 +10,15 @@ public class PersonMeeting extends Meeting {
 	
 	private String name, phoneNumber;
 	
-	    // Constructor
+	    // Default Constructor
         protected PersonMeeting() {
 			super();
 			name = "Ploni";
 			phoneNumber = "0000000000";
 		}
 		// Constructor
-        protected PersonMeeting(Date date, int Length,String name, String phoneNumber) {
-			super(date,Length);
+        protected PersonMeeting(Date date, int Length, Date end, String name, String phoneNumber) {
+			super(date,Length, end);
 			this.name = name;
 			this.phoneNumber = phoneNumber;
 		}

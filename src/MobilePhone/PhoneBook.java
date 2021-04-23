@@ -46,6 +46,7 @@ public class PhoneBook {
 		}
 		if(i == PersonsPhoneBook.size()) {
 		   System.out.println("ERROR: No contact found");
+		   return;
 		}
 	}
 	// Search person function
@@ -184,7 +185,7 @@ public class PhoneBook {
 	protected void menu() {
 		while(true) {
 			this.printMenu();
-		    System.out.println("Enter option");
+		    System.out.println("Enter option:");
 		    String option = MobilePhone.myObj.nextLine();  // Read user input
 			switch (option) {
 			  case "1":
@@ -198,6 +199,7 @@ public class PhoneBook {
 				    System.out.println("Enter name to delete:");
 				    String nameToDelete = MobilePhone.myObj.nextLine();  // Read user input
 				    this.deletePerson(nameToDelete);
+				    MobilePhone.myDiary.deleteMeetingPerson(nameToDelete);
 			        break;
 			  case "3":
 			        System.out.println(this);

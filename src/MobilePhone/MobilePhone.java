@@ -9,7 +9,7 @@ import java.util.Scanner; // Import the Scanner class to read text files
 public class MobilePhone {
 	
 	protected static PhoneBook pb;
-	protected Diary myDiary;
+	protected static Diary myDiary;
 	public static Scanner myObj = new Scanner(System.in);
 	
 	// Default Constructor
@@ -22,14 +22,14 @@ public class MobilePhone {
 		return;
 	}
 	protected void DiaryControl() {
-		this.myDiary.menu();
+		MobilePhone.myDiary.menu();
 		return;
 	}
 	// User menu
 	protected void menu() {
 		while(true) {
 			this.printMenu();
-		    System.out.println("Enter option");
+		    System.out.println("Enter option:");
 		    String option = myObj.nextLine();  // Read user input
 			switch (option) {
 			  case "1":
