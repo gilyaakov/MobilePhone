@@ -1,6 +1,6 @@
 package MobilePhone;
 
-public abstract class Media {
+public abstract class Media implements Playable{
 	
 	private String name;
 	private int Length;
@@ -24,7 +24,7 @@ public abstract class Media {
 		return this.Length;
 	}
 	// Return name function
-	protected String getName() {
+	public String getName() {
 		return this.name;
 	}
 }

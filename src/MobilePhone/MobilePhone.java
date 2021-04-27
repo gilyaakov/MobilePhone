@@ -52,7 +52,10 @@ public class MobilePhone {
 				    this.MediaControl();
 			        break;
 			  case "5":
-				    //Print all (polymorphism)
+				    System.out.println(pb);
+				    //SMS print
+				    System.out.println(myDiary);
+				    myPlayer.playAll();
 			        break;
 			  case "6":
 				    myObj.close();
