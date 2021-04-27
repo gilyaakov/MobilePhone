@@ -10,12 +10,15 @@ public class MobilePhone {
 	
 	protected static PhoneBook pb;
 	protected static Diary myDiary;
+	protected static Player myPlayer;
 	public static Scanner myObj = new Scanner(System.in);
 	
 	// Default Constructor
 	protected MobilePhone() {
 		pb = new PhoneBook();
-		myDiary = new Diary(); 
+		myDiary = new Diary();
+		myPlayer = new Player();
+		
 	}
 	protected void PhoneBookControl() {
 		MobilePhone.pb.menu();
@@ -23,6 +26,10 @@ public class MobilePhone {
 	}
 	protected void DiaryControl() {
 		MobilePhone.myDiary.menu();
+		return;
+	}
+	protected void MediaControl() {
+		MobilePhone.myPlayer.menu();
 		return;
 	}
 	// User menu
@@ -42,7 +49,7 @@ public class MobilePhone {
 				    this.DiaryControl();
 			        break;
 			  case "4":
-				    //Media control
+				    this.MediaControl();
 			        break;
 			  case "5":
 				    //Print all (polymorphism)

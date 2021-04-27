@@ -9,7 +9,7 @@ import java.util.Objects;
 import java.text.DateFormat; // import the Date Format class
 import java.text.SimpleDateFormat; // import the Date Format class
 
-public class Meeting implements Comparable<Meeting> {
+public abstract class Meeting implements Comparable<Meeting> {
 	
 	private Date date;
 	private Date end;

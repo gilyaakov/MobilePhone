@@ -7,6 +7,7 @@ import java.util.ArrayList; // import the ArrayList class
 import java.util.Calendar; // import the Calendar class
 import java.util.Collections;
 import  java.util.Date; // import the Date class
+import java.util.InputMismatchException;
 import java.util.Iterator; // import the Iterator class
 import java.util.concurrent.CopyOnWriteArrayList;
 
@@ -23,7 +24,7 @@ public class Diary {
 		}
 	}
 	// Function for adding a meeting or event
-	protected void addMeeting() {
+	protected void addMeeting() throws InputMismatchException{
 		Calendar c = Calendar.getInstance();
 		System.out.println("Enter day (1-30):");
 	    int day = MobilePhone.myObj.nextInt();  // Read user input
@@ -198,7 +199,12 @@ public class Diary {
 		    String option = MobilePhone.myObj.nextLine();  // Read user input
 			switch (option) {
 			  case "1":
+				  try {
 				    this.addMeeting();
+				  }catch(InputMismatchException e) {
+					  MobilePhone.myObj.nextLine();  // Clean enter
+					  System.out.println("Error: inValid input");
+				  }
 				    this.sortDiary();
 			        break;
 			  case "2":
