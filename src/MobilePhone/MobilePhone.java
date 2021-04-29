@@ -1,7 +1,8 @@
-// Students: Matan Eshel 203502802 & Gil Ya'akov 203382858
+// Students: Matan Eshel,Gil Ya'akov, Ron Gandelman, Eliyahu Latin
 // Project Name: Task2
-// Date: 19/04/2021
+// Date: 29/04/2021
 // Group number: 17
+
 package MobilePhone;
 
 import java.util.Scanner; // Import the Scanner class to read text files
@@ -9,6 +10,7 @@ import java.util.Scanner; // Import the Scanner class to read text files
 public class MobilePhone {
 	
 	protected static PhoneBook pb;
+	protected static MsgSystem smsSystem;
 	protected static Diary myDiary;
 	protected static Player myPlayer;
 	public static Scanner myObj = new Scanner(System.in);
@@ -16,12 +18,17 @@ public class MobilePhone {
 	// Default Constructor
 	protected MobilePhone() {
 		pb = new PhoneBook();
+		smsSystem = new MsgSystem();
 		myDiary = new Diary();
 		myPlayer = new Player();
 		
 	}
 	protected void PhoneBookControl() {
 		MobilePhone.pb.menu();
+		return;
+	}
+	protected void smsControl() {
+		MobilePhone.smsSystem.menu(MobilePhone.pb);
 		return;
 	}
 	protected void DiaryControl() {
@@ -43,7 +50,7 @@ public class MobilePhone {
 				    this.PhoneBookControl();
 			        break;
 			  case "2":
-				    //SMS control
+				    this.smsControl();
 			        break;
 			  case "3":
 				    this.DiaryControl();
@@ -53,7 +60,7 @@ public class MobilePhone {
 			        break;
 			  case "5":
 				    System.out.println(pb);
-				    //SMS print
+				    smsSystem.printAllCorresponding();
 				    System.out.println(myDiary);
 				    myPlayer.playAll();
 			        break;
